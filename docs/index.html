@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scala Intro</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; color: #333333; }
+      h1 { font-family: 'Yanone Kaffeesatz'; font-weight: normal; color: #074548; }
+      h2, h3 { font-family: 'Yanone Kaffeesatz'; font-weight: normal; color: #6f9a9c; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .medium { font-size: 28px; }
+      .large { font-size: 36px; }
+      .pull-left { float: left; width: 47%; }
+      .pull-right { float: right; width: 47%; }
+      .large-left { float: left; width: 57%; }
+      .small-right { float: right; width: 27%; }
+      .medium-right { float: right; width: 37%; }
+      .footer { position: absolute; bottom: 12px; left: 45px }
+      table { border-collapse: collapse; display: inline-block; }
+      th, td { padding: 10px; border: 1px solid black; }
+      tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+<a href="https://github.com/fp-tower">
+  <img src="img/solid-color-logo.svg" alt="logo" style="width:600px;"/>
+</a>
+
+<br>
+<br>
+
+
+# Scala Intro
+Julien Truffaut • `julien@fp-tower.com`
+
+???
+- notes here
+- see https://remarkjs.com/#1
+
+
+---
+layout: true
+
+<div class="footer">
+  <a href="https://github.com/fp-tower">
+    <img src="img/symbol-solid-gray-b3b3b3.svg" alt="logo" style="width:100px;"/>
+  </a>
+</div>
+
+---
+# Inline Scala examples
+
+```scala
+case class Person(name: String, age: Int)
+```
+
+```scala
+val john = Person("John", 23)
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// john: Person = Person(John,23)
+
+john.age
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// res0: Int = 23
+
+john.copy(age = 30)
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// res1: Person = Person(John,30)
+```
+
+???
+- see https://github.com/tpolecat/tut
+
+---
+# Scala examples from core module
+
+```scala
+import intro.Foo.{FooInt, FooString}
+```
+
+```scala
+val fooInt = FooInt(5)
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// fooInt: intro.Foo.FooInt = FooInt(5)
+
+val fooString = FooString("Hello World")
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// fooString: intro.Foo.FooString = FooString(Hello World)
+
+val foos = List(fooInt, fooString)
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// warning: -Xfuture is deprecated: Not used since 2.13.
+// foos: List[intro.Foo] = List(FooInt(5), FooString(Hello World))
+```
+
+---
+class: center, middle
+
+# Thanks!
+Code and slides at [fp-tower/scala-intro](https://github.com/fp-tower/scala-intro) on GitHub
+
+## Questions?
+
+
+ </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+        var slideshow = remark.create({
+            ratio: "16:9",
+            slideNumberFormat: '%current%',
+            highlightLines: true
+        });
+    </script>
+  </body>
+</html>
