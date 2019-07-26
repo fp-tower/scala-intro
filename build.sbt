@@ -8,8 +8,7 @@ lazy val baseSettings: Seq[Setting[_]] = Seq(
     "-language:implicitConversions", "-language:existentials",
     "-unchecked",
     "-Ywarn-numeric-widen",
-    "-Ywarn-value-discard",
-    "-Xfuture"
+    "-Ywarn-value-discard"
   ),
   resolvers += Resolver.sonatypeRepo("releases")
 )

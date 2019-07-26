@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scala Intro</title>
+    <title>Data</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -38,7 +38,7 @@ class: center, middle
 <br>
 
 
-# Scala Intro
+# Data
 
 ---
 layout: true
@@ -50,55 +50,68 @@ layout: true
 </div>
 
 ---
-class: center, middle
+# Trait
 
-# Scala combines object-oriented and functional programming in one concise, high-level language
+```scala
+trait Console {
+  def writeLine(message: String): Unit
+}
+```
 
-source: www.scala-lang.org
+--
 
----
-background-image: url(img/introduction/java-vs-haskell.svg)
+```scala
+val std = new Console {
+  def writeLine(message: String): Unit =
+    println(message)
+}
 
----
-.h1[# Scala from Java perspective]
+val std2: Console = std
+```
 
-.large[
-* powerful collections
-* immutability: `val` and data structure
-* null not used
-* reflection barely used (no spring)
-* fall back to java (String, File, time, UUID, excel, netty, ...)
-]
+--
 
----
-.h1[# Scala from Haskell perspective]
+```scala
+scala> std
+res0: Console = $anon$1@5b89b779
 
-.large[
-* uncontrolled side effect
-* local type inference
-* subtyping
-* dot syntax
-]
-
----
-.h1[# Scala]
-
-.large[
-* OOP and FP have many similarities
-   * interface - record of functions
-   * reify - church encoding
-
-* Scala is more than the combination of haskell and java
-   * intersection types: `Foo with Bar`
-   * union types: `Foo | Bar`
-   * variance
-   * local typeclass instance
-]
+scala> std.writeLine("Hello World!")
+Hello World!
+```
 
 ---
-class: center, middle
+# Trait with implementation
 
-# Scala 3 in 2020 - 2021
+```scala
+trait Console {
+  def writeLine(message: String): Unit
+
+  def writeInt(value: Int): Unit =
+    writeLine(value.toString)
+}
+
+val std = new Console {
+  def writeLine(message: String): Unit =
+    println(message)
+}
+```
+
+```scala
+scala> std.writeLine("Hello World!")
+Hello World!
+
+scala> std.writeInt(10)
+10
+```
+
+---
+# Trait composition
+
+```scala
+trait EmptyTrait
+
+trait Foo extends EmptyTrait with Console
+```
 
 ---
 class: center, middle

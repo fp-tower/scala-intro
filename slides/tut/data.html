@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scala Intro</title>
+    <title>Data</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -38,7 +38,7 @@ class: center, middle
 <br>
 
 
-# Scala Intro
+# Data
 
 ---
 layout: true
@@ -50,55 +50,62 @@ layout: true
 </div>
 
 ---
-class: center, middle
+# Trait
 
-# Scala combines object-oriented and functional programming in one concise, high-level language
+```tut:silent
+trait Console {
+  def writeLine(message: String): Unit
+}
+```
 
-source: www.scala-lang.org
+--
 
----
-background-image: url(img/introduction/java-vs-haskell.svg)
+```tut:silent
+val std = new Console {
+  def writeLine(message: String): Unit =
+    println(message)
+}
 
----
-.h1[# Scala from Java perspective]
+val std2: Console = std
+```
 
-.large[
-* powerful collections
-* immutability: `val` and data structure
-* null not used
-* reflection barely used (no spring)
-* fall back to java (String, File, time, UUID, excel, netty, ...)
-]
+--
 
----
-.h1[# Scala from Haskell perspective]
-
-.large[
-* uncontrolled side effect
-* local type inference
-* subtyping
-* dot syntax
-]
+```tut
+std
+std.writeLine("Hello World!")
+```
 
 ---
-.h1[# Scala]
+# Trait with implementation
 
-.large[
-* OOP and FP have many similarities
-   * interface - record of functions
-   * reify - church encoding
+```tut:silent
+trait Console {
+  def writeLine(message: String): Unit
 
-* Scala is more than the combination of haskell and java
-   * intersection types: `Foo with Bar`
-   * union types: `Foo | Bar`
-   * variance
-   * local typeclass instance
-]
+  def writeInt(value: Int): Unit =
+    writeLine(value.toString)
+}
+
+val std = new Console {
+  def writeLine(message: String): Unit =
+    println(message)
+}
+```
+
+```tut
+std.writeLine("Hello World!")
+std.writeInt(10)
+```
 
 ---
-class: center, middle
+# Trait composition
 
-# Scala 3 in 2020 - 2021
+```tut:silent
+trait EmptyTrait
+
+trait Foo extends EmptyTrait with Console
+```
 
 ---
 class: center, middle

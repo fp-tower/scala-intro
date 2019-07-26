@@ -40,11 +40,6 @@ class: center, middle
 
 # Scala Intro
 
-???
-- notes here
-- see https://remarkjs.com/#1
-
-
 ---
 layout: true
 
@@ -55,36 +50,55 @@ layout: true
 </div>
 
 ---
-# Inline Scala examples
+class: center, middle
 
-```tut:silent
-case class Person(name: String, age: Int)
-```
+# Scala combines object-oriented and functional programming in one concise, high-level language
 
-```tut:book
-val john = Person("John", 23)
-
-john.age
-
-john.copy(age = 30)
-```
-
-???
-- see https://github.com/tpolecat/tut
+source: www.scala-lang.org
 
 ---
-# Scala examples from core module
+background-image: url(img/introduction/java-vs-haskell.svg)
 
-```tut:silent
-import intro.Foo.{FooInt, FooString}
-```
+---
+.h1[# Scala from Java perspective]
 
-```tut:book
-val fooInt = FooInt(5)
-val fooString = FooString("Hello World")
+.large[
+* powerful collections
+* immutability: `val` and data structure
+* null not used
+* reflection barely used (no spring)
+* fall back to java (String, File, time, UUID, excel, netty, ...)
+]
 
-val foos = List(fooInt, fooString)
-```
+---
+.h1[# Scala from Haskell perspective]
+
+.large[
+* uncontrolled side effect
+* local type inference
+* subtyping
+* dot syntax
+]
+
+---
+.h1[# Scala]
+
+.large[
+* OOP and FP have many similarities
+   * interface - record of functions
+   * reify - church encoding
+
+* Scala is more than the combination of haskell and java
+   * intersection types: `Foo with Bar`
+   * union types: `Foo | Bar`
+   * variance
+   * local typeclass instance
+]
+
+---
+class: center, middle
+
+# Scala 3 in 2020 - 2021
 
 ---
 class: center, middle
