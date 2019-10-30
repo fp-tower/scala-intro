@@ -23,6 +23,8 @@ lazy val core = project
   .settings(moduleName := "scala-intro-core")
   .settings(baseSettings: _*)
 
+lazy val docs = project.in(file("slides2"))
+  .enablePlugins(MdocPlugin)
 
 lazy val slides = project
   .settings(moduleName := "scala-intro-slides")

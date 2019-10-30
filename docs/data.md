@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scala Intro</title>
+    <title>Data</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -38,7 +38,7 @@ class: center, middle
 <br>
 
 
-# Scala Intro
+# Data
 
 ---
 layout: true
@@ -50,55 +50,12 @@ layout: true
 </div>
 
 ---
-class: center, middle
+# Test
 
-# Scala combines object-oriented and functional programming in one concise, high-level language
+```scala mdoc
+val x = 1
+```
 
-source: www.scala-lang.org
-
----
-background-image: url(img/introduction/java-vs-haskell.svg)
-
----
-.h1[# Scala from Java perspective]
-
-.large[
-* powerful collections
-* immutability: `val` and data structure
-* null not used
-* reflection barely used (no spring)
-* fall back to java (String, File, time, UUID, excel, netty, ...)
-]
-
----
-.h1[# Scala from Haskell perspective]
-
-.large[
-* uncontrolled side effect
-* local type inference
-* subtyping
-* dot syntax
-]
-
----
-.h1[# Scala]
-
-.large[
-* OOP and FP have many similarities
-   * interface - record of functions
-   * reify - church encoding
-
-* Scala is more than the combination of haskell and java
-   * intersection types: `Foo with Bar`
-   * union types: `Foo | Bar`
-   * variance
-   * local typeclass instance
-]
-
----
-class: center, middle
-
-# Scala 3 in 2020 - 2021
 
 ---
 class: center, middle
