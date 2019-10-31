@@ -50,68 +50,12 @@ layout: true
 </div>
 
 ---
-# Trait
+# Test
 
-```scala
-trait Console {
-  def writeLine(message: String): Unit
-}
+```scala mdoc
+val x = 1
 ```
 
---
-
-```scala
-val std = new Console {
-  def writeLine(message: String): Unit =
-    println(message)
-}
-
-val std2: Console = std
-```
-
---
-
-```scala
-scala> std
-res0: Console = $anon$1@5b89b779
-
-scala> std.writeLine("Hello World!")
-Hello World!
-```
-
----
-# Trait with implementation
-
-```scala
-trait Console {
-  def writeLine(message: String): Unit
-
-  def writeInt(value: Int): Unit =
-    writeLine(value.toString)
-}
-
-val std = new Console {
-  def writeLine(message: String): Unit =
-    println(message)
-}
-```
-
-```scala
-scala> std.writeLine("Hello World!")
-Hello World!
-
-scala> std.writeInt(10)
-10
-```
-
----
-# Trait composition
-
-```scala
-trait EmptyTrait
-
-trait Foo extends EmptyTrait with Console
-```
 
 ---
 class: center, middle

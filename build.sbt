@@ -1,5 +1,5 @@
 lazy val baseSettings: Seq[Setting[_]] = Seq(
-  scalaVersion       := "2.13.0",
+  scalaVersion       := "2.13.1",
   scalacOptions     ++= Seq(
     "-deprecation",
     "-encoding", "UTF-8",
@@ -16,13 +16,17 @@ lazy val baseSettings: Seq[Setting[_]] = Seq(
 lazy val intro = project.in(file("."))
   .settings(moduleName := "scala-intro")
   .settings(baseSettings: _*)
-  .aggregate(core, slides)
-  .dependsOn(core, slides)
+  .aggregate(core, docs)
+  .dependsOn(core, docs)
 
 lazy val core = project
   .settings(moduleName := "scala-intro-core")
   .settings(baseSettings: _*)
 
+lazy val docs = project.in(file("slides2"))
+  .settings(baseSettings: _*)
+  .dependsOn(core)
+  .enablePlugins(MdocPlugin)
 
 lazy val slides = project
   .settings(moduleName := "scala-intro-slides")
