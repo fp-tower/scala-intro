@@ -24,15 +24,16 @@ lazy val core = project
   .settings(baseSettings: _*)
 
 lazy val docs = project.in(file("slides2"))
+  .settings(baseSettings: _*)
   .dependsOn(core)
   .enablePlugins(MdocPlugin)
 
-//lazy val slides = project
-//  .settings(moduleName := "scala-intro-slides")
-//  .settings(baseSettings: _*)
-//  .settings(
-//    tutSourceDirectory := baseDirectory.value / "tut",
-//    tutTargetDirectory := baseDirectory.value / "../docs",
-//    watchSources ++= (tutSourceDirectory.value ** "*.html").get
-//  ).dependsOn(core)
-//  .enablePlugins(TutPlugin)
+lazy val slides = project
+  .settings(moduleName := "scala-intro-slides")
+  .settings(baseSettings: _*)
+  .settings(
+    tutSourceDirectory := baseDirectory.value / "tut",
+    tutTargetDirectory := baseDirectory.value / "../docs",
+    watchSources ++= (tutSourceDirectory.value ** "*.html").get
+  ).dependsOn(core)
+  .enablePlugins(TutPlugin)
